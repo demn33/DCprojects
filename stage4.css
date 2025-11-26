@@ -1,0 +1,321 @@
+/* ===== RESET & BASE ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+  background-color: #f5f6fa;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 80px; /* space for fixed header */
+}
+
+/* ===== TOP BAR ===== */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  box-shadow: 0 2px 6px black;
+  z-index: 10;
+  flex-wrap: wrap;
+}
+
+.top-bar h1 {
+  font-size: 1.4em;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ===== SEARCH BAR ===== */
+.search-bar {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin: 0 20px;
+  align-items: center;
+}
+
+.search-bar input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 25px;
+  font-size: 0.95em;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.search-box {
+  text-align: center;
+  margin: 30px auto 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-box label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #222;
+}
+
+.search-box input {
+  width: 300px;
+  max-width: 80%;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  font-size: 1rem;
+  box-shadow: 0 1px 3px black;
+}
+
+.search-box input:focus {
+  border-color: red;
+  box-shadow: 0 0 6px black;
+}
+
+.search-bar input:focus {
+  box-shadow: 0 0 6px black;
+}
+
+/* ===== LOGIN SECTION ===== */
+.login-box,
+.logout-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.login-box input[type="password"] {
+  padding: 6px 8px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  width: 140px;
+}
+
+.login-box button,
+.logout-box button {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: white;
+  color: red;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.login-box button:hover,
+.logout-box button:hover {
+  background-color: #e0e0e0;
+}
+
+/* ===== FORM CARD ===== */
+form {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px black;
+  width: 90%;
+  max-width: 600px;
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+form label {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+form input,
+form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+  outline: none;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+form button {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+form button:hover {
+  background-color: red;
+}
+
+/* ===== TABLE ===== */
+table {
+  width: 95%;
+  max-width: 1200px;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px black;
+  margin-bottom: 40px;
+}
+
+#blocklistTable tr:hover {
+  background-color: red;
+}
+
+thead {
+  background-color: red;
+  color: white;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95em;
+}
+
+th {
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+tr:hover {
+  background-color: #f8f9ff;
+}
+
+/* ===== BUTTONS IN TABLE ===== */
+.action-btn {
+  padding: 6px 10px;
+  margin: 0 3px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* ===== ADMIN-ONLY FIELDS ===== */
+.admin-only {
+  display: none;
+}
+
+/* ===== RESPONSIVE FIXES ===== */
+@media (max-width: 700px) {
+  .top-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .search-bar {
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  .login-box input {
+    width: 120px;
+  }
+
+  form {
+    width: 95%;
+    padding: 16px;
+  }
+
+  table {
+    font-size: 0.9em;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+}
+
+/* ===== Action Buttons (Edit / Delete) ===== */
+.action-btn {
+  padding: 6px 12px;
+  margin: 0 3px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #fff;
+}
+
+/* Edit Button (Blue) */
+.edit-btn {
+  background-color: #4a73ff;
+}
+
+.edit-btn:hover {
+  background-color: #3659d3;
+}
+
+/* Delete Button (Red) */
+.delete-btn {
+  background-color: white;
+}
+
+.delete-btn:hover {
+  background-color: white;
+}
+
+/* Keep table layout consistent */
+#blocklistTable td button {
+  min-width: 70px;
+}
+
+/* Remove hover color from table headers */
+#blocklistTable thead tr:hover {
+  background-color: inherit !important;
+}
+
+/* Keep data row hover subtle */
+#blocklistTable tbody tr:hover {
+  background-color: #f5f5f5 !important;  /* light gray */
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Optional: smoother style consistency */
+#blocklistTable tbody tr {
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Ensure buttons don’t trigger red hover */
+#blocklistTable td button:hover {
+  background-color: #d0d0d0 !important;
+  color: #000 !important;
+}
